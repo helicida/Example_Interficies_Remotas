@@ -24,10 +24,10 @@ public class ClienteCalculadora {
 
         if(operacion.contains("+")){
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555); //ACCEDEMOS AL REGISTRO
+                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
                 server = (InterficiesRemotas) registry.lookup("interfaz");
 
-                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.sumar(operacion)); //LLAMAMOS AL METODO CALCULAR
+                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.sumar(operacion));
 
             }
             catch (
@@ -38,10 +38,10 @@ public class ClienteCalculadora {
         else if(operacion.contains("-")){
             // Resta
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555); //ACCEDEMOS AL REGISTRO
+                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
                 server = (InterficiesRemotas) registry.lookup("interfaz");
 
-                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.restar(operacion)); //LLAMAMOS AL METODO CALCULAR
+                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.restar(operacion));
 
             }
             catch (
@@ -52,10 +52,10 @@ public class ClienteCalculadora {
         else if (operacion.contains("*")){
             // Multiplicar
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555); //ACCEDEMOS AL REGISTRO
+                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
                 server = (InterficiesRemotas) registry.lookup("interfaz");
 
-                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.multiplicar(operacion)); //LLAMAMOS AL METODO CALCULAR
+                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.multiplicar(operacion));
 
             }
             catch (
@@ -66,10 +66,10 @@ public class ClienteCalculadora {
         else if (operacion.contains("/")) {
             // Dividir
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555); //ACCEDEMOS AL REGISTRO
+                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
                 server = (InterficiesRemotas) registry.lookup("interfaz");
 
-                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.dividir(operacion)); //LLAMAMOS AL METODO CALCULAR
+                System.out.println("\nEl resultado de '" + operacion + "' es: " + server.dividir(operacion));
 
             }
             catch (

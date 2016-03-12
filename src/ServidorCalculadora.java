@@ -17,15 +17,16 @@ public class ServidorCalculadora implements InterficiesRemotas {
     @Override
     public double sumar(String suma) throws RemoteException {
 
+        // Variables con los numeros de la opreacion
         double a = 0;
         double b = 0;
 
+        // Dividimos en dos nuestro String
         suma = suma.replace(" ", "");
+
+        // Asignamos a cada variable cada factor de la operacion
         a = Double.parseDouble(suma.split("\\+")[0]);
         b = Double.parseDouble(suma.split("\\+")[1]);
-
-        System.out.println(a);
-        System.out.println(b);
 
         return a+b;
     }
@@ -33,15 +34,16 @@ public class ServidorCalculadora implements InterficiesRemotas {
     @Override
     public double restar(String resta) throws RemoteException {
 
+        // Variables con los numeros de la opreacion
         double a = 0;
         double b = 0;
 
+        // Dividimos en dos nuestro String
         resta = resta.replace(" ", "");
+
+        // Asignamos a cada variable cada factor de la operacion
         a = Double.parseDouble(resta.split("-")[0]);
         b = Double.parseDouble(resta.split("-")[1]);
-
-        System.out.println(a);
-        System.out.println(b);
 
         return a-b;
     }
@@ -49,10 +51,14 @@ public class ServidorCalculadora implements InterficiesRemotas {
     @Override
     public double multiplicar(String multiplicacion) throws RemoteException {
 
+        // Variables con los numeros de la opreacion
         double a = 0;
         double b = 0;
 
+        // Dividimos en dos nuestro String
         multiplicacion = multiplicacion.replace(" ", "");
+
+        // Asignamos a cada variable cada factor de la operacion
         a = Double.parseDouble(multiplicacion.split("\\*")[0]);
         b = Double.parseDouble(multiplicacion.split("\\*")[1]);
 
@@ -62,10 +68,14 @@ public class ServidorCalculadora implements InterficiesRemotas {
     @Override
     public double dividir(String division) throws RemoteException {
 
+        // Variables con los numeros de la opreacion
         double a = 0;
         double b = 0;
 
+        // Dividimos en dos nuestro String
         division = division.replace(" ", "");
+
+        // Asignamos a cada variable cada factor de la operacion
         a = Double.parseDouble(division.split("\\/")[0]);
         b = Double.parseDouble(division.split("\\/")[1]);
 
