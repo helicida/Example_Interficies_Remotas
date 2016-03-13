@@ -10,7 +10,7 @@ import java.util.StringJoiner;
  */
 public class ClienteCalculadora {
 
-    private static String operacion = "3 + 4";
+    private static String operacion = "3 + 4";  // Operacion
 
     public static void main(String[] args) {
 
@@ -24,58 +24,60 @@ public class ClienteCalculadora {
 
         if(operacion.contains("+")){
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
-                server = (InterficiesRemotas) registry.lookup("interfaz");
+                // Apuntamos a la ip y puerto y buscamos la palabra clave "interfaces"
+                Registry registro = LocateRegistry.getRegistry("localhost", 5555);
+                server = (InterficiesRemotas) registro.lookup("interfaces");
 
                 System.out.println("\nEl resultado de '" + operacion + "' es: " + server.sumar(operacion));
-
             }
-            catch (
-                    RemoteException | NotBoundException exception) {
+            catch ( RemoteException | NotBoundException exception) {
                 exception.printStackTrace();
             }
         }
         else if(operacion.contains("-")){
             // Resta
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
-                server = (InterficiesRemotas) registry.lookup("interfaz");
+                // Apuntamos a la ip y puerto y buscamos la palabra clave "interfaces"
+                Registry registro = LocateRegistry.getRegistry("localhost", 5555);
+                server = (InterficiesRemotas) registro.lookup("interfaces");
 
                 System.out.println("\nEl resultado de '" + operacion + "' es: " + server.restar(operacion));
 
             }
-            catch (
-                    RemoteException | NotBoundException exception) {
+            catch (RemoteException | NotBoundException exception) {
                 exception.printStackTrace();
             }
         }
         else if (operacion.contains("*")){
             // Multiplicar
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
-                server = (InterficiesRemotas) registry.lookup("interfaz");
+                // Apuntamos a la ip y puerto y buscamos la palabra clave "interfaces"
+                Registry registro = LocateRegistry.getRegistry("localhost", 5555);
+                server = (InterficiesRemotas) registro.lookup("interfaces");
 
                 System.out.println("\nEl resultado de '" + operacion + "' es: " + server.multiplicar(operacion));
 
             }
-            catch (
-                    RemoteException | NotBoundException exception) {
+            catch (RemoteException | NotBoundException exception) {
                 exception.printStackTrace();
             }
         }
         else if (operacion.contains("/")) {
             // Dividir
             try {
-                Registry registry = LocateRegistry.getRegistry("localhost", 5555);
-                server = (InterficiesRemotas) registry.lookup("interfaz");
+                // Apuntamos a la ip y puerto y buscamos la palabra clave "interfaces"
+                Registry registro = LocateRegistry.getRegistry("localhost", 5555);
+                server = (InterficiesRemotas) registro.lookup("interfaces");
 
                 System.out.println("\nEl resultado de '" + operacion + "' es: " + server.dividir(operacion));
 
             }
-            catch (
-                    RemoteException | NotBoundException exception) {
+            catch (RemoteException | NotBoundException exception) {
                 exception.printStackTrace();
             }
+        }
+        else{
+            System.out.println("Carácter erroneo");
         }
     }
 }

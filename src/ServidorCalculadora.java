@@ -12,6 +12,7 @@ import javax.script.ScriptException;
  */
 public class ServidorCalculadora implements InterficiesRemotas {
 
+    // Instanciamos el servidor
     private static ServidorCalculadora rmiCalculatorServer = new ServidorCalculadora();
 
     @Override
@@ -84,23 +85,16 @@ public class ServidorCalculadora implements InterficiesRemotas {
 
     public static void main(String[] args) {
 
-        Registry reg = null;
+        Registry registro = null;
 
         try {
-            reg = LocateRegistry.createRegistry(5555);
+            registro = LocateRegistry.createRegistry(5555);
+            registro.rebind("interfaces", UnicastRemoteObject.exportObject(rmiCalculatorServer, 0));
+            System.out.println("Los metodos ya estan disponibles de manera remota.");
         }
         catch (Exception two) {
             two.printStackTrace();
         }
-
-        try {
-            reg.rebind("interfaz", UnicastRemoteObject.exportObject(rmiCalculatorServer, 0));
-            System.out.println("\nEl metodo ha sido subido a Internet para que sea accesible de forma remota.");
-        }
-        catch (Exception three){
-            System.out.println("\nERROR: No se ha podido subir el metodo a Internet.");
-            three.printStackTrace();
-        }
-        System.out.println("El Servidor esta escuchando.\nAhora Ejecuta el Cliente para hacer los calculos.");
+        System.out.println("Servidor activo..");
     }
 }
